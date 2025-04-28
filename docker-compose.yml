@@ -1,0 +1,13 @@
+services:
+  sleek-airflow:
+    build: .
+    image: stocknews:latest
+    volumes:
+      - D:/stock_prediction/dags:/opt/airflow/dags  # Map DAGs and CSVs
+      - D:/stock_prediction/outputs:/opt/airflow/outputs  # Persist outputs
+    ports:
+      - "8080:8080"
+    command: airflow standalone
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false  # Disable example DAGs
+      - AIRFLOW__CORE__DAGS_FOLDER=/opt/airflow/dags
