@@ -1,8 +1,9 @@
-AI-Powered Real-Time News Effects on Stock Market Changes
-📈 Project Overview
+**AI-Powered Real-Time News Effects on Stock Market Changes**
+
+📈 **Project Overview**
 This project builds an AI-powered real-time system that predicts stock market changes based on news events. It combines natural language processing (NLP) and time-series modeling (LSTM) to create a pipeline that analyzes news articles, merges them with stock data, and predicts closing prices through an interactive interface.
 
-Key features:
+**Key features:**
 
 Real-time news data collection.
 
@@ -14,16 +15,16 @@ Automated pipeline using Apache Airflow.
 
 Web deployment via Gradio.
 
-🛠️ System Architecture
-News Data Collection:
+**🛠️ System Architecture
+News Data Collection:**
 
 64,269 articles over 30 days collected via Alpha Vantage API for 25 major stocks (e.g., AAPL, MSFT, TSLA).
 
-Stock Data Collection:
+**Stock Data Collection:**
 
 Intraday 1-minute stock prices fetched using yfinance.
 
-Preprocessing:
+**Preprocessing:**
 
 Merge stock and news within a 3-hour window.
 
@@ -31,7 +32,7 @@ Cleaned news headlines processed with spaCy.
 
 Headlines embedded into 768-dimensional vectors using BERT.
 
-Modeling:
+**Modeling:**
 
 LSTM model with 3 layers of 512 units each.
 
@@ -39,22 +40,22 @@ Input: Stock features (Open, High, Low) + BERT embeddings = 771 dimensions.
 
 Output: Predicted closing price.
 
-Automation:
+**Automation:**
 
 Apache Airflow orchestrates end-to-end pipeline every 5 minutes.
 
-Deployment:
+**Deployment:**
 
 Gradio provides a user interface for manual and automated prediction modes.
 
-📚 Methodology
-Preprocessing:
+**📚 Methodology
+Preprocessing:**
 
 Lowercasing, lemmatization, stopword removal with spaCy.
 
 BERT-based embeddings for news titles.
 
-Model Training:
+**Model Training:**
 
 Optimizer: Adam (learning rate = 0.001).
 
@@ -62,13 +63,13 @@ Loss function: Mean Squared Error (MSE).
 
 Early stopping with patience=50 and dynamic learning rate scheduler.
 
-Post-processing:
+**Post-processing:**
 
 Inverse transform scaled predictions.
 
 Evaluation using MSE, RMSE, and R² metrics.
 
-📊 Results
+**📊 Results**
 
 Metric	Value
 Test MSE	31.1385 dollars²
@@ -81,8 +82,8 @@ Low RMSE indicates small prediction errors.
 
 Minor performance degradation noticed in extreme (low/high) priced stocks.
 
-⚙️ ML-Ops
-Tools Used:
+**⚙️ ML-Ops
+Tools Used:**
 
 Data Collection: Alpha Vantage API, yfinance
 
@@ -102,14 +103,14 @@ Airflow DAG stock_news_prediction runs every 5 minutes.
 
 Tasks include data fetching, preprocessing, model training, and prediction generation.
 
-🚀 Deployment
-Manual Mode:
+**🚀 Deployment
+Manual Mode:**
 Users enter a ticker and a news headline → Model predicts the stock’s closing price.
 
 Automated Mode:
 The system continuously updates every minute, collecting and predicting based on the last 3 hours of news.
 
-🔮 Future Work
+**🔮 Future Work**
 Implement Transformer-based models for time series prediction.
 
 Incorporate social media sentiment analysis.
@@ -118,7 +119,7 @@ Deploy on AWS for scalability.
 
 Optimize scheduling for active trading hours.
 
-📄 References
+**📄 References**
 Bollen, J., Mao, H., & Zeng, X. (2011). Twitter mood predicts the stock market
 
 Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers
@@ -127,5 +128,5 @@ Brown, T., et al. (2020). Language Models are Few-Shot Learners
 
 Plus additional financial and AI references.
 
-📬 Contact
+**📬 Contact**
 For any queries or collaboration ideas, feel free to connect!
